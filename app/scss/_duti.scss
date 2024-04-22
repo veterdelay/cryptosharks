@@ -1,0 +1,188 @@
+.cs_duti{
+    z-index:45;
+    position: relative;
+    @media(max-width:$breakpoint768){
+        margin-top:-60px;
+    }
+   .cs_duti_body{
+
+    display:flex;
+
+    .cs_duti_left{
+        width:50%;
+        flex-shrink: 0;
+        @media(max-width:$breakpoint992){
+            width:40%;
+        }
+        @media(max-width:$breakpoint768){
+            width:0%;
+        }
+        .duti_macbook_wrapper{
+            position: relative;
+            width:626px;
+            @media(max-width:$breakpoint1200){
+                width:546px;
+            }
+            @media(max-width:$breakpoint992){
+                left:-100px;
+            }
+            @media(max-width:$breakpoint768){
+                width:450px;
+                top:50px;
+            }
+            .duti_macbook_shadow{
+                position: absolute;
+                z-index: 15;
+                transform: translate(-55%, 0px);
+                left: 50%;
+                top: 100px;
+                bottom: 0px;
+                margin: auto;
+                width: 928px;
+                opacity:0;
+                transition: all 0.6s;
+                @media(max-width:$breakpoint1200){
+                    width:800px;
+                }
+                @media(max-width:$breakpoint768){
+                    opacity:0.6;
+                    z-index:25;
+                    width:700px;
+                }
+            }
+            .duti_macbook{
+                position: relative;
+                width:626px;
+                z-index:20;
+                @media(max-width:$breakpoint1200){
+                    width:546px;
+                }
+                @media(max-width:$breakpoint768){
+                    width:450px;
+                    opacity:0.5;
+                }
+            }
+        }
+
+    }
+
+    .cs_duti_right{
+        width:50%;
+        flex-shrink: 0;
+        position: relative;
+        z-index:25;
+        @media(max-width:$breakpoint992){
+            width:60%;
+        }
+        @media(max-width:$breakpoint768){
+            width:100%;
+        }
+        .duti_content{
+            display:flex;
+            flex-direction: column;
+            gap:130px;
+            align-items: flex-end;
+            @media(max-width:$breakpoint1200){
+                gap:60px;
+            }
+            @media(max-width:$breakpoint768){
+                align-items: center;
+            }
+            .duti_title{
+                color:#fff;
+                font-size: 42px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 100%;
+                text-align: right;
+                opacity:0;
+                transform: translateY(100px);
+                transition: all 0.4s;
+                @media(max-width:$breakpoint992){
+                    font-size:36px;
+                    width:95%;
+                }
+                @media(max-width:$breakpoint768){
+                    width:100%;
+                    text-align: center;
+                }
+            }
+            .duti_messages_body{
+                display:flex;
+                gap:10px;
+                justify-content: flex-end;
+                opacity:0;
+                transform: translateY(120px);
+                transition: all 0.6s;
+                .duti_messages{
+                    display:flex;
+                    flex-direction: column;
+                    gap:25px;
+                    width: 75%;
+                    @media(max-width:$breakpoint992){
+                        width:85%;
+                    }
+                    .duti_item{
+                        background: linear-gradient(92deg, #5B40AD 0%, #B17600 100%);
+                        width:fit-content;
+                        padding: 16px 21px;
+                        color: #FFF;
+                        font-family: Roboto;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 300;
+                        line-height: 1.2;
+                        border-radius:15px 15px 15px 0px;
+                        position: relative;
+                        @media(max-width:$breakpoint1200){
+                            width:auto;
+                        }
+                        &.violet-sh{
+                            box-shadow: 0px 0px 75px 0px rgba(91, 64, 173, 0.30);
+                        }
+                        &.yellow-sh{
+                            box-shadow: 0px 0px 75px 0px rgba(177, 118, 0, 0.30);
+                        }
+                        .duti_item_sd{
+                            position: absolute;
+                            left:-13px;
+                            bottom:0;
+                            width:19px;
+                            height:11px;
+                        }
+                    }
+                }
+                    .duti_avatar_image{
+                        width:52px;
+                        height:52px;
+                        margin-top:auto;
+                        border-radius: 52px;
+                        border: 2px solid #5B40AD;
+                        box-shadow: 0px 0px 75px 0px rgba(91, 64, 173, 0.30);
+                    }
+            }
+
+        }
+    }
+
+   }
+
+   &.animation_active{
+
+    .cs_duti_body .cs_duti_left .duti_macbook_wrapper .duti_macbook_shadow{
+        opacity:1;
+    }
+
+    .cs_duti_body .cs_duti_right .duti_content .duti_title{
+        opacity:1;
+        transform: translateY(0px);
+    }
+
+    .cs_duti_body .cs_duti_right .duti_content .duti_messages_body{
+        opacity:1;
+        transform: translateY(0px);
+    }
+
+   }
+    
+}

@@ -1,0 +1,318 @@
+.cs_requ{
+
+    margin-top:130px;
+    @media(max-width:$breakpoint992){
+        margin-top:110px;
+    }
+    @media(max-width:$breakpoint768){
+        margin-top:80px;
+    }
+    .cs_requ_wrapper{
+        display:flex;
+        flex-direction: column;
+        
+        .requ_top_line{
+            width:2393.79px;
+            position: relative;
+            transform: translate(-50%, 0);
+            left: calc(50% + 60px);
+            @media(max-width:$breakpoint992){
+                width: 2000.79px;
+                left: calc(50% + 171px);
+            }
+            @media(max-width:$breakpoint768){
+                width: 1600.79px;
+                left: calc(50% + 290px);
+            }
+        }
+
+        .cs_requ_content{
+            min-height:640px;
+            background-color: #1F1A27;
+            position: relative;
+            .requ_sides{
+                display:flex;
+                position: relative;
+                @media(max-width:$breakpoint768){
+                    flex-direction: column;
+                    gap:40px;
+                }
+                .requ_left{
+                    flex-shrink: 0;
+                    width:50%;
+                    z-index:40;
+                    padding-bottom:140px;
+                    @media(max-width:$breakpoint768){
+                        width:100%;
+                        padding-bottom:0px;
+                    }
+                    .requ_first_title{
+                        color:#fff;
+                        font-size: 42px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 100%;
+                        margin-bottom:60px;
+                        opacity:0;
+                        transform: translateY(100px);
+                        transition: all 0.4s;
+                        @media(max-width:$breakpoint992){
+                            font-size:36px;
+                            margin-bottom:40px;
+                        }
+                        @media(max-width:$breakpoint768){
+                           text-align: center;
+                        }
+                    }
+                    .requ_body{
+                        display:flex;
+                        flex-wrap: wrap;
+                        gap:40px;
+                        margin-bottom:60px;
+                        opacity:0;
+                        transform: translateY(120px);
+                        transition: all 0.6s;
+                        @media(max-width:$breakpoint1200){
+                            gap:20px;
+                        }
+                        @media(max-width:$breakpoint992){
+                            margin-bottom:40px;
+                        }
+                        .requ_item{
+                            max-width:269px;
+                            display:flex;
+                            flex-direction: column;
+                            gap:20px;
+                            @media(max-width:$breakpoint1200){
+                                max-width:none;
+                            }
+                            @media(max-width:$breakpoint768){
+                                width:100%;
+                            }
+                            .requ_title{
+                                display:flex;
+                                gap:10px;
+                                align-items: flex-end;
+                                @media(max-width:$breakpoint768){
+                                    margin:0px auto;
+                                }
+                                .requ_title_h3{
+                                    color: #FFF;
+                                    font-size: 24px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 100%;
+                                    @media(max-width:$breakpoint768){
+                                        font-size:22px;
+                                    }
+                                }
+                                .requ_icon{
+                                    width:35px;
+                                    @media(max-width:$breakpoint768){
+                                        width:32px;
+                                    }
+                                }
+                            }
+                            .requ_text{
+                                color: #FFF;
+                                font-family: Roboto;
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 300;
+                                line-height: 1.2;
+                                @media(max-width:$breakpoint768){
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                    .requ_first_subtitle{
+                        max-width:578px;
+                        color: #FFF;
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 300;
+                        line-height: 100%;
+                        position: relative;
+                        text-align: center;
+                        margin-bottom:30px;
+                        display:block;
+                        z-index:15;
+                        opacity:0;
+                        transform: translateY(140px);
+                        transition: all 0.8s;
+                        strong{
+                            color:$mainColor;
+                            font-weight:500;
+                        }
+                        @media(max-width:$breakpoint1200){
+                            max-width:none;
+                        }
+                    }
+                    .requ_button_section{
+                        max-width:578px;
+                        .requ_button{
+                            margin:0px auto;
+                            width:474px;
+                            opacity:0;
+                            transform: translateY(160px);
+                            transition: transform 0.8s all 0.3s;
+                            @media(max-width:$breakpoint768){
+                                width:90%;
+                            }
+                        }
+                        @media(max-width:$breakpoint1200){
+                            max-width:none;
+                        }
+                    }
+                }
+                .requ_right{
+                    flex-shrink: 0;
+                    width:50%;
+                    @media(max-width:$breakpoint768){
+                        width:100%;
+                        padding-bottom: 85px;
+                    }
+                    .requ_man_wrapper{
+                        margin-left:auto;
+                        width:410px;
+                        position: relative;
+                        bottom:90px;
+                        @media(max-width:$breakpoint1200){
+                            bottom:-85px;
+                        }
+                        @media(max-width:$breakpoint992){
+                            bottom: -101px;
+                            right: -60px;
+                        }
+                        @media(max-width:$breakpoint768){
+                            width:290px;
+                            margin:0px auto;
+                            right:auto;
+                            bottom:auto;
+                        }
+                        .requ_man{
+                            width:410px;
+                            z-index:5;
+                            position: relative;
+                            @media(max-width:$breakpoint768){
+                                width:290px;
+                            }
+                        }
+                        .requ_graffiti{
+                            width:581px;
+                            position: absolute;
+                            z-index:2;
+                            transform: translate(-50%, 0);
+                            left: calc(50%);
+                            top:80px;
+                            bottom:0;
+                            margin:auto;
+                            animation: 80s linear 0s normal none infinite running rot;
+                            @media(max-width:$breakpoint768){
+                                width: 430px;
+                                top:-7px;
+                            }
+                        }
+
+                        @keyframes rot {
+                            0% {
+                              transform: translate(-50%, 0) rotate(0deg);
+                            }
+                            100% {
+                              transform: translate(-50%, 0) rotate(360deg);
+                            }
+                          }
+
+                        .requ_shadow{
+                            position: absolute;
+                            z-index:15;
+                            transform: translate(-50%, 0);
+                            left: calc(50%);
+                            top:0;
+                            bottom:0;
+                            margin:auto;
+                            z-index:35;
+                            opacity:0;
+                            transition: all 0.6s;
+                            @media(max-width:$breakpoint768){
+                                width:800px;
+                            }
+                        }
+
+                    }
+                }
+                .requ_blomb{
+                    position:absolute;
+                    left:56px;
+                    z-index:5;
+                    bottom: -207px;
+                    width:465px;
+                    z-index:25;
+                    @media(max-width:$breakpoint1200){
+                        bottom:-210px;
+                        left:26px;
+                    }
+                    @media(max-width:$breakpoint992){
+                        bottom: -167px;
+                        left: -50px;   
+                        width:400px;
+                    }
+                    @media(max-width:$breakpoint768){
+                        display:none;
+                    }
+                }
+            }
+            .requ_bottom_line{
+                position: absolute;
+                bottom:0;
+                width:2349.62px;
+                margin:0px auto;
+                transform: translate(-50%, 0);
+                left: calc(50% + 60px);
+                z-index:20;
+                @media(max-width:$breakpoint1200){
+                    left: calc(50% - -133px);
+                }
+                @media(max-width:$breakpoint992){
+                    width:2000.62px;
+                    left: calc(50% - -36px);
+                }
+                @media(max-width:$breakpoint768){
+                    width: 1600.62px;
+                    left: calc(50% + -240px);
+                }
+            }
+
+            &.animation_active{
+
+                .requ_sides .requ_left .requ_first_title{
+                    opacity:1;
+                    transform: translateY(0px);
+                }
+        
+                .requ_sides .requ_left .requ_body{
+                    opacity:1;
+                    transform: translateY(0px);
+                }
+        
+                .requ_sides .requ_left .requ_first_subtitle{
+                    opacity:1;
+                    transform: translateY(0px);
+                }
+        
+                .requ_sides .requ_left .requ_button_section .requ_button{
+                    opacity:1;
+                    transform: translateY(0px);
+                }
+
+                .requ_sides .requ_right .requ_man_wrapper .requ_shadow{
+                    opacity:1;
+                }
+        
+            }
+
+        }
+    }
+
+}
