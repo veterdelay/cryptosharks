@@ -50,11 +50,22 @@ quotes: "" "";
 }
 
 html{
+    overflow-x:hidden;
     height:100%;
+    &.burger-hidden{
+        @media(max-width:991.98px){
+            overflow: hidden;
+        }
+    }
+    &.overflow-hidden{
+        overflow: hidden;
+    }
 }
 
 body{
     height:100%;
+    width:100%;
+    overflow-x: clip;
 }
 
 .wrapper{
@@ -65,19 +76,6 @@ body{
 
 header {
     flex: 0 0 auto;
-}
-
-.overflow{
-    overflow-x: hidden;
-    height: 100%;
-    &.burger-hidden{
-        @media(max-width:991.98px){
-            overflow: hidden;
-        }
-    }
-    &.overflow-hidden{
-        overflow: hidden;
-    }
 }
   
 main {

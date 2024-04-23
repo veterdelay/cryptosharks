@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 $('.cs_header_burger').click(function(){
     $('.cs_header_nav').toggleClass('active');
-    $('.overflow').addClass('burger-hidden');
+    $('html').addClass('burger-hidden');
 });
 
 //burger close
@@ -29,14 +29,14 @@ $(document).mouseup( function(e){
     if ( !burger.is(e.target) 
         && burger.has(e.target).length === 0 ) { 
             burger.removeClass('active');
-            $('.overflow').removeClass('burger-hidden');
+            $('html').removeClass('burger-hidden');
     }
 });
 
 $('.cs_header_burder_close').click(function(){
     let burger = $('.cs_header_nav'); 
     burger.removeClass('active');
-    $('.overflow').removeClass('burger-hidden');
+    $('html').removeClass('burger-hidden');
 });
 
 //hero parallax
@@ -146,7 +146,6 @@ $(document).ready(function(){
     gsap.utils.toArray('.cs_animate').forEach(function(elem) {
         ScrollTrigger.create({
             trigger: elem,
-            scroller: '.overflow',
             start: 'top 50%',
             once: true,
             onEnter: () => {
@@ -164,9 +163,9 @@ gsap.utils.toArray(".nav-link").forEach(function(a) {
         e.preventDefault();
         if(burger.hasClass('active')){
             burger.removeClass('active');
-            $('.overflow').removeClass('burger-hidden');
+            $('html').removeClass('burger-hidden');
         }
-        gsap.to('.overflow', {
+        gsap.to('html', {
             duration: 1,
             scrollTo: e.target.getAttribute("href")
         });
@@ -180,7 +179,7 @@ $('.questionary').click(function (e) {
     let burger = $('.cs_header_nav'); 
     if(burger.hasClass('active')){
         burger.removeClass('active');
-        $('.overflow').removeClass('burger-hidden');
+        $('html').removeClass('burger-hidden');
     }
 });
 
@@ -242,10 +241,17 @@ function checkRequ(parent){
                 $(this).parent().parent().find('.form-error-wrapper').addClass('error-active');
             }
             res = false;
+        }else if($(this).val().substr(5).replace(/[^\d]/g, '').length < 10 && $(this).parent().hasClass('phone_input_wrapper')){
+            $(this).addClass('input_error');
+            $(this).parent().next().css('display','none');
+            $(this).parent().next().next().css('display','block');
+            $(this).parent().parent().parent().find('.form-error-wrapper').addClass('error-active');
+            res = false;
         }else{
             $(this).removeClass('input_error');
             if($(this).parent().hasClass('phone_input_wrapper')){
                 $(this).parent().next().css('display','none');
+                $(this).parent().next().next().css('display','none');
             }else{
                 $(this).next().css('display','none');
                 $(this).parent().parent().find('.form-error-wrapper').removeClass('error-active');
@@ -365,6 +371,33 @@ $( ".modalform" ).on( "submit", function( event ) {
     }
 });
 
+$( ".smallmodalform" ).on( "submit", function( event ) {
+    if(checkRequ(".smallmodalform")){
+        event.preventDefault();
+        let thisForm = $(this);
+        $.ajax({
+            url: '/getanket.php',
+            method: 'post',
+            dataType: 'html',
+            data: fbServerInfo($(this)),
+            success: function(data){
+                if(data = 'ok'){
+                    fbq('track', 'Lead', {}, {
+                        eventID: thisForm.find('input[name="fbEventId"]').val()
+                    });
+                    $("#smallformmodal").removeClass("fade_active");
+                    openModal('#tnxmodal');
+                    thisForm.trigger('reset');
+                }else{
+                    openModal('#errormodal');
+                }
+            }
+            });
+    }else{
+        event.preventDefault();
+    }
+});
+
 $(document).ready(function(){
     $('.phonemodal').inputmask({"mask": "+38 (999) 999 99 99"});
     $('.phoneinput').inputmask({"mask": "+38 (999) 999 99 99"});
@@ -374,7 +407,7 @@ $(document).ready(function(){
 
 function openModal(modalName){
     $(modalName).addClass('fade_active');
-    $('.overflow').addClass('overflow-hidden');
+    $('html').addClass('overflow-hidden');
     return false;
 }
 
@@ -385,15 +418,62 @@ $('.questionary').click(function(e) {
 
 $('.close_modal').click(function(e) {
         $(this).parent('.modal').parent('.modal_fade').removeClass('fade_active');	
-        $('.overflow').removeClass('overflow-hidden');			
+        $('html').removeClass('overflow-hidden');			
 });
 
 $('.modal_fade').click(function(e) {
     if ($(e.target).closest('.modal').length == 0) {
         $(this).removeClass('fade_active');	
-        $('.overflow').removeClass('overflow-hidden');			
+        $('html').removeClass('overflow-hidden');			
     }
 });
+
+//call widget sound
+
+$("#jplayer").jPlayer({
+    ready: function() { 
+      $(this).jPlayer("setMedia", { 
+        mp3: "/sound/notification.mp3"
+      }); 
+    },
+    supplied: "mp3"
+});
+
+//call widget
+
+const widget = $('.cs_call_widget');
+
+$(window).on( "load", function() {
+    setTimeout(function(){
+        widget.addClass('active');
+        setTimeout(function(){
+            widget.addClass('after-active');
+        }, 300);
+        $('#jplayer').jPlayer("play");
+    }, 4000);
+});
+
+//call widget open modal
+
+widget.click(function(e) {
+    if($(this).hasClass('close')){
+        $(this).removeClass('close');
+        setTimeout(function(){
+            widget.removeClass('pre_close');
+            widget.addClass('after-active');
+        }, 300);
+    }else{
+        if($(e.target).closest(".close_call_icon").length){
+            $(this).addClass('pre_close');
+            setTimeout(function(){
+                widget.addClass('close');
+            }, 300);
+            $(this).removeClass('after-active'); 
+        }else{
+            openModal('#smallformmodal');
+        }
+    }
+});	
 
 
 

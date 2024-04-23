@@ -66,6 +66,7 @@ function building(){
         'app/css/style.min.css',
         'app/js/main.min.js',
         'app/images/**/*',
+        'app/sound/**/*',
         'app/index.html',
         'app/getanket.php',
         'app/getIp.php'
